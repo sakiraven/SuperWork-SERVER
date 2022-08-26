@@ -1,0 +1,20 @@
+package ${package}.${moduleName}.service;
+
+import ${package}.sys.service.BaseService;
+import ${mainPath}.common.utils.PageUtils;
+import ${package}.${moduleName}.entity.${className}Entity;
+
+import java.util.Map;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface ${className}Service extends BaseService<${className}Entity> {
+
+    PageUtils queryPage(Map<String, Object> params);
+}
+

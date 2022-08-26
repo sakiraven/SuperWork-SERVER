@@ -1,0 +1,56 @@
+package ${package.Entity};
+
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+    #foreach($pkg in ${table.importPackages})
+    import ${pkg};
+    #end
+import lombok.Data;
+
+/**
+ * ${table.name}表
+ * @author ${author}
+ */
+@Data
+    #if(${table.convert})
+    @TableName("${table.name}")
+    #end
+public class ${entity} implements Serializable{
+## ----------  BEGIN 字段循环遍历  ----------
+#foreach($field in ${table.fields})
+    #if(${field.keyFlag})
+        #set($keyPropertyName=${field.propertyName})
+    #end
+    #if("$!field.comment" != "")
+    /**
+     * ${field.comment}
+     * ${field}
+     */
+    #end
+    #if(${field.keyFlag}==true)
+        ## 主键
+        #if(${field.keyIdentityFlag})
+        @TableId(value = "${field.name}", type = IdType.AUTO)
+        #else
+        @TableId(value = "${field.name}", type = IdType.ASSIGN_ID)
+        #end
+        ## 普通字段
+    #elseif(${field.convert}==true)
+    @TableField(value = "${field.name}", fill = FieldFill.${field.fill})
+    #elseif(${field.convert}==false)
+    @TableField(value = "${field.name}")
+    #end
+    ## 乐观锁注解
+    #if(${versionFieldName}==${field.name})
+    @Version
+    #end
+    ## 逻辑删除注解
+    #if(${logicDeleteFieldName}==${field.name})
+    @TableLogic
+    #end
+private ${field.propertyType} ${field.propertyName};
+
+#end
+}

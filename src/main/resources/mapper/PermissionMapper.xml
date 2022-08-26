@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.saki.work.system.mapper.PermissionMapper">
+
+    <select id="setPermissionByUserInfoId" resultType="java.lang.String">
+        select * from permission perm
+        left join role_permission_group rpg
+        on perm.id = rpg.permission_id
+        left join user_info_role_group uig
+        on rpg.role_id = uig.role_id
+        where uig.user_info_id = #{userInfoId}
+    </select>
+</mapper>

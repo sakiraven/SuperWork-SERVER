@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.xkzhangsan:xk-time:3.2.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../workTools/maven/com/github/xkzhangsan/xk-time/3.2.0/xk-time-3.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../workTools/maven/com/github/xkzhangsan/xk-time/3.2.0/xk-time-3.2.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../workTools/maven/com/github/xkzhangsan/xk-time/3.2.0/xk-time-3.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
